@@ -9,7 +9,7 @@
             <a href="adminPage.php">home</a>
             <a href="adminProduct.php">products</a>
             <a href="adminOrder.php">orders</a>
-            <a href="">reviews</a>
+            <a href="adminReviews.php">reviews</a>
 
         </nav>
 

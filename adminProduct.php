@@ -198,7 +198,6 @@
                             INNER JOIN categories c ON p.category_id = c.category_id
                             INNER JOIN type t ON t.type_id = p.type_id";
 
-
                     $result_product = mysqli_query($conn, $sql);
 
                     while($fetech_product = mysqli_fetch_assoc($result_product)) {

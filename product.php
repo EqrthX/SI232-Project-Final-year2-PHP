@@ -159,8 +159,8 @@
 
             <li><a href="Home_Visitor.php">Home</a></li>
             <li><a href="Catagory.php">Catagory</a></li>
-            <li><a href="">About us</a></li>
-            <li><a href="">Contact</a></li>
+            <li><a href="About_us.php">About us</a></li>
+            <li><a href="Contact.php">Contact</a></li>
 
         </ul>
 
@@ -291,7 +291,7 @@
     
     ?>
 
-    <script src="script.js"></script>
+    <script src="js/script.js"></script>
 
 </body>
 </html>

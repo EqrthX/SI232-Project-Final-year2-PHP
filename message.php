@@ -2,6 +2,17 @@
 
     include 'connection.php';
 
+    session_start();
+
+    $user_id = $_SESSION['user_id'];
+
+    if(!isset($user_id)) {
+
+        header("location:Login.php");
+        exit();
+        
+    }
+
     function showImagesCarousel() {
 
         $image_folder = 'upload_images/';
@@ -141,7 +152,21 @@ footer {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-</style>
+/* .contact h2,
+.cotactat h2 {
+  text-align: center;
+} */
+
+
+/* textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+ 
+}   */
+
+ </style>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -170,7 +195,7 @@ footer {
 
     <form action="message.php" method="post">
     <label for="name">Name</label>
-  <input type="text" id="name" name="name" placeholder="Enter your name" style="width: 100%; padding: 10px; border: 1px solid #ccc; box-sizing: border-box;">
+    <input type="text" id="name" name="name" placeholder="Enter your name" style="width: 100%; padding: 10px; border: 1px solid #ccc; box-sizing: border-box;">
 
       <label for="email">Email</label>
       <input type="email" id="email" name="email" placeholder="Enter your email address">
@@ -233,10 +258,10 @@ footer {
   <footer>
   <nav>
       <ul>
-        <li><a href="Home_Visitor.php">HOME</a></li>
+        <li><a href="Home.php">HOME</a></li>
         <li><a href="Catagory.php">CATAGORY</a></li>
-        <li><a href="About_us.php">ABOUT US</a></li>
-        <li><a href="Contact.php">CONTACT</a></li>
+        <li><a href="About_us_Login.php">ABOUT US</a></li>
+        <li><a href="Contact_Login.php">CONTACT</a></li>
         
       </ul>
     </nav>
@@ -264,3 +289,53 @@ footer {
 
 </body>
 </html>
+
+
+
+<?php
+$name = $_POST['name'];
+$email = $_POST['email'];
+$phone = $_POST['phone'];
+$subject = $_POST['subject'];
+$message = $_POST['message'];
+
+if (!empty($name) && !empty($email) && !empty($phone) && !empty($subject) && !empty($message)) {
+    $host = "localhost";
+    $dbUsername = "root";
+    $dbPassword = "";
+    $dbname = "cgameshop";
+
+    // create connection
+    $conn = new mysqli($host, $dbUsername, $dbPassword, $dbname);
+
+    if (mysqli_connect_error()) {
+        die('Connect Error('. mysqli_connect_errno().')'. mysqli_connect_error());
+    } else {
+        $SELECT = "SELECT email FROM message WHERE email = ? LIMIT 1";
+        $INSERT = "INSERT INTO message (name, email, phone, subject, message) VALUES (?, ?, ?, ?, ?)";
+        
+        // Prepare statement
+        $stmt = $conn->prepare($SELECT);
+        $stmt->bind_param("s", $email);
+        $stmt->execute();
+        $stmt->store_result();
+        $rnum = $stmt->num_rows;
+        
+        if ($rnum == 0) {
+            $stmt->close();
+            $stmt = $conn->prepare($INSERT);
+            $stmt->bind_param("sssss", $name, $email, $phone, $subject, $message);
+            $stmt->execute();
+            echo "<script>alert('บันทึกข้อมูลเรียบร้อย')</script>";
+        } else {
+            echo "<script>alert('อีเมลซ้ำ มีอีเมลนี้ในระบบแล้ว!!')</script>";
+        }
+        
+        $stmt->close();
+        $conn->close();
+    }
+} else {
+    echo "All fields are required";
+    die();
+}
+?>

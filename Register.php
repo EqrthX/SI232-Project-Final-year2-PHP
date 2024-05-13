@@ -31,10 +31,11 @@
                 $gender = isset($_POST['gender']) ? $_POST['gender'] : '';
                 $email = $_POST['email'];
                 $tel = $_POST['tel'];
+                $address = $_POST['address'];
 
                 $errors = array();
 
-                if(empty($username) OR empty($password) OR empty($password_con) OR empty($first_name) OR empty($last_name) OR empty($gender) OR empty($email) OR empty($tel)) {
+                if(empty($username) OR empty($password) OR empty($password_con) OR empty($first_name) OR empty($last_name) OR empty($gender) OR empty($email) OR empty($tel) OR empty($address)) {
 
                     array_push($errors, "All fields are required!");
 
@@ -111,13 +112,13 @@
 
                 } else {
 
-                    $sql_insert_user = "INSERT INTO users(username, password, firstname, lastname, gender, email, tel) VALUES(?, ?, ?, ?, ?, ?, ?)";
+                    $sql_insert_user = "INSERT INTO users(username, password, firstname, lastname, gender, email, tel, address) VALUES(?, ?, ?, ?, ?, ?, ?, ?)";
                     $stmt = mysqli_stmt_init($conn);
                     $prepareStmt = mysqli_stmt_prepare($stmt, $sql_insert_user);
 
                     if($prepareStmt) {
 
-                        mysqli_stmt_bind_param($stmt, "sssssss", $username, $password, $first_name, $last_name, $gender, $email, $tel);
+                        mysqli_stmt_bind_param($stmt, "ssssssss", $username, $password, $first_name, $last_name, $gender, $email, $tel, $address);
                         mysqli_stmt_execute($stmt);
                         echo "<div class='alert alert-success'>You registered successfully!</div>";
 
@@ -178,10 +179,16 @@
                 <input type="text" name="tel" placeholder="telephone" class="form-control">
             </div>
 
+            
+            <div class="form-floating mb-3">
+                <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea" name="address"></textarea>
+                <label for="floatingTextarea">Address</label>
+                
+            </div>
+            
             <div class="form-btn mb-3">
                 <input type="submit" value="enter" name="reg" class="btn btn-success">
             </div>
-
             <p>Already have an account? <span><a href="Login.php">Login now</a></span></p>
 
         </form>

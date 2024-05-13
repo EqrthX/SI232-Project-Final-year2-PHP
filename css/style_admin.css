@@ -282,3 +282,147 @@ html, body {
 
 }
 
+/* ORDER */
+
+.container .form-control {
+    width: 25%;
+}
+
+.container .container-checkorder {
+    width: 100%;
+    height: auto;
+    display: flex; /* เปลี่ยน display เป็น flex */
+    flex-wrap: wrap; /* ให้ .box-order ขึ้นไปเรื่อยๆ ถ้าความกว้างไม่พอ */
+    
+}
+
+.container .container-checkorder .box-order {
+    width: calc(50% - 20px); /* ปรับความกว้างให้เท่ากันและลดขอบระหว่าง .box-order */
+    height: auto;
+    background: #F0B67F;
+    margin-right: 20px; /* เพิ่มระยะห่างด้านขวาของ .box-order */
+    margin-bottom: 20px; /* เพิ่มระยะห่างด้านล่างของ .box-order */
+    border-radius: .5rem;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.container .container-checkorder .box-order:last-child {
+    margin-right: 0; /* ไม่ต้องมีระยะห่างด้านขวาใน .box-order สุดท้าย */
+}
+
+.container .container-checkorder .box-order .content {
+    width: 100%; /* ปรับให้เต็มความกว้างของ .box-order */
+    height: auto;
+    text-align: center;
+    padding: 5px;
+}
+
+/* IN ORDER */
+
+h1 {
+
+    text-transform: uppercase;
+    text-align: center;
+
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.check-box {
+
+    width: 100%;
+    max-width: 900px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    background: #F0B67F;
+    border-radius: 1rem;
+
+}
+
+.arrow {
+
+    color: white;
+    text-decoration: none;
+    font-size: 3rem;
+    position: relative;
+    left: 35px;
+    transition: 0.3s ease;
+}
+
+.arrow:hover {
+
+    color: brown;
+
+}
+
+.box-order-check {
+
+    display: flex;
+    justify-content: space-between;
+    padding: 5px;
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    top: -70px;
+
+}
+
+.order-details {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.form-check-group {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-left: 20px; /* Space between text and checkboxes */
+}
+
+.form-check {
+    margin-bottom: 5px;
+}
+
+.form-check-input {
+    margin-right: 10px;
+}
+
+.btn {
+    margin-top: 20px;
+}
+
+.arrow {
+    display: block;
+    margin-bottom: 10px;
+}
+
+/* Review */
+
+
+.container-review {
+
+    width: 100%;
+    height: auto;
+        display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+
+}
+
+.box-review {
+
+    width: 100%;
+    height: auto;
+    background: #F0B67F;
+    border-radius: .5rem;
+    padding: 5px;
+
+}
+

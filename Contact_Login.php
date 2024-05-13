@@ -2,6 +2,17 @@
 
     include 'connection.php';
 
+    session_start();
+
+    $user_id = $_SESSION['user_id'];
+
+    if(!isset($user_id)) {
+
+        header("location:Login.php");
+        exit();
+        
+    }
+
     function showImagesCarousel() {
 
         $image_folder = 'upload_images/';
@@ -33,115 +44,115 @@
 ?>
 
 <?php require 'header_user.php'; ?>
-<style>
-body {
-  font-family: sans-serif;
-  margin: 0;
-  padding: 0;
-}
+  <style>
+    body {
+      font-family: sans-serif;
+      margin: 0;
+      padding: 0;
+    }
 
-header {
-  background-color: #f0f0f0;
-  padding: 20px;
-}
+    header {
+      background-color: #f0f0f0;
+      padding: 20px;
+    }
 
-h1 {
-  text-align: left;
-}
+    h1 {
+      text-align: left;
+    }
 
-nav {
-  text-align: center;
-}
+    nav {
+      text-align: center;
+    }
 
-nav ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
+    nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
 
-nav li {
-  display: inline-block;
-  margin: 0 10px;
-}
+    nav li {
+      display: inline-block;
+      margin: 0 10px;
+    }
 
-nav a {
-  text-decoration: none;
-  color: #333;
-}
+    nav a {
+      text-decoration: none;
+      color: #333;
+    }
 
-.contact-us {
-  padding: 20px;
-}
+    .contact-us {
+      padding: 20px;
+    }
 
-h2 {
-  text-align: center;
-}
+    h2 {
+      text-align: center;
+    }
 
-p {
-  text-align: center;
-}
+    p {
+      text-align: center;
+    }
 
-form {
-  margin: 20px 0;
-}
+    form {
+      margin: 20px 0;
+    }
 
-label {
-  display: block;
-  margin-bottom: 5px;
-}
+    label {
+      display: block;
+      margin-bottom: 5px;
+    }
 
-input[type="email"],
-textarea {
-  width: 100%;
-  padding: 10px;
-  border: 1px solid #ccc;
-  box-sizing: border-box;
-}
+    input[type="email"],
+    textarea {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      box-sizing: border-box;
+    }
 
-button {
-  background-color: #4CAF50;
-  color: white;
-  padding: 10px 20px;
-  border: none;
-  cursor: pointer;
-}
+    button {
+      background-color: #4CAF50;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      cursor: pointer;
+    }
 
-address {
-  text-align: center;
-  margin-top: 20px;
-}
+    address {
+      text-align: center;
+      margin-top: 20px;
+    }
 
-footer {
-  background-color: #f0f0f0;
-  padding: 20px;
-  text-align: center;
-}
+    footer {
+      background-color: #f0f0f0;
+      padding: 20px;
+      text-align: center;
+    }
 
-.contact-container {
-  display: flex;
-  justify-content: space-around;
-  flex-wrap: wrap;
-}
+    .contact-container {
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+    }
 
-.contact {
-  flex: 1 1 300px;
-  margin: 0 10px;
-}
+    .contact {
+      flex: 1 1 300px;
+      margin: 0 10px;
+    }
 
-.contactat {
-  flex: 1 1 300px;
-  margin: 0 10px;
-}
+    .contactat {
+      flex: 1 1 300px;
+      margin: 0 10px;
+    }
 
-.contact,
-.cotactat {
-  padding: 20px;
-  background-color: #f9f9f9;
-  border-radius: 5px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
+    .contact,
+    .cotactat {
+      padding: 20px;
+      background-color: #f9f9f9;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
 
-</style>
+  </style>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -156,12 +167,6 @@ footer {
   
 </head>
 <body>
-  <header>
-    
-    
-  </header>
-
-  </header>
 
 <section class="contact-container">
   <div class="contact">
@@ -233,10 +238,10 @@ footer {
   <footer>
   <nav>
       <ul>
-        <li><a href="Home_Visitor.php">HOME</a></li>
-        <li><a href="Catagory.php">CATAGORY</a></li>
-        <li><a href="About_us.php">ABOUT US</a></li>
-        <li><a href="Contact.php">CONTACT</a></li>
+        <li><a href="Home.php">HOME</a></li>
+        <li><a href="Catagory_Login.php">CATAGORY</a></li>
+        <li><a href="About_us_Login.php">ABOUT US</a></li>
+        <li><a href="Contact_Login.php">CONTACT</a></li>
         
       </ul>
     </nav>

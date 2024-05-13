@@ -167,8 +167,8 @@
 
             <li><a href="Home.php">Home</a></li>
             <li><a href="Catagory_Login.php">Catagory</a></li>
-            <li><a href="">About us</a></li>
-            <li><a href="">Contact</a></li>
+            <li><a href="About_us_Login.php">About us</a></li>
+            <li><a href="Contact_Login.php">Contact</a></li>
 
         </ul>
 

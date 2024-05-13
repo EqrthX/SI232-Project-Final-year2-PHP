@@ -16,7 +16,8 @@
 
         if($result_select_del) {
 
-            header("location:cart_page.php");
+            header("location:Home.php");
+            exit();
 
         } else {
 
@@ -34,6 +35,7 @@
         
         if($result_delAll) {
             header("location:Home.php");
+            exit();
         } else {
             echo "การลบข้อมูลผิดพลาด";
         }
