@@ -14,6 +14,26 @@
     <link rel="stylesheet" href="css/login_register.css">
 </head>
 <body>
+    <div class="game-bg-elements">
+        <!-- SVG 1: Gamepad -->
+        <svg class="game-icon icon-1" viewBox="0 0 24 24" width="80" height="80" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="6" width="20" height="12" rx="3"></rect>
+            <path d="M6 12h4M8 10v4M15 11h.01M18 13h.01"></path>
+        </svg>
+        <!-- SVG 2: Space Invader / Alien -->
+        <svg class="game-icon icon-2" viewBox="0 0 24 24" width="70" height="70" fill="currentColor">
+            <path d="M4 2h2v2H4V2zm14 0h2v2h-2V2zm-4 2h2v2h-2V4zm-6 0h2v2H8V4zm-4 4h16v2H4V8zm2 2h2v2H6v-2zm10 0h2v2h-2v-2zm-6 2h4v2h-4v-2zm-6 2h2v2H4v-2zm14 0h2v2h-2v-2z"></path>
+        </svg>
+        <!-- SVG 3: D-Pad -->
+        <svg class="game-icon icon-3" viewBox="0 0 24 24" width="90" height="90" fill="none" stroke="currentColor" stroke-width="1.5">
+            <circle cx="12" cy="12" r="10"></circle>
+            <path d="M12 8v8M8 12h8"></path>
+        </svg>
+        <!-- SVG 4: Play Button -->
+        <svg class="game-icon icon-4" viewBox="0 0 24 24" width="75" height="75" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M5 3l14 9-14 9V3z"></path>
+        </svg>
+    </div>
     <div class="container">
         <a href="index.php" class="arrow">&#x2190;</a>
         <?php 

@@ -14,7 +14,28 @@
     <link rel="stylesheet" href="css/login_register.css">
 </head>
 <body>
-    <div class="container">
+    <div class="game-bg-elements">
+        <!-- SVG 1: Gamepad -->
+        <svg class="game-icon icon-1" viewBox="0 0 24 24" width="80" height="80" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="6" width="20" height="12" rx="3"></rect>
+            <path d="M6 12h4M8 10v4M15 11h.01M18 13h.01"></path>
+        </svg>
+        <!-- SVG 2: Space Invader -->
+        <svg class="game-icon icon-2" viewBox="0 0 24 24" width="70" height="70" fill="currentColor">
+            <path d="M4 2h2v2H4V2zm14 0h2v2h-2V2zm-4 2h2v2h-2V4zm-6 0h2v2H8V4zm-4 4h16v2H4V8zm2 2h2v2H6v-2zm10 0h2v2h-2v-2zm-6 2h4v2h-4v-2zm-6 2h2v2H4v-2zm14 0h2v2h-2v-2z"></path>
+        </svg>
+        <!-- SVG 3: D-Pad -->
+        <svg class="game-icon icon-3" viewBox="0 0 24 24" width="90" height="90" fill="none" stroke="currentColor" stroke-width="1.5">
+            <circle cx="12" cy="12" r="10"></circle>
+            <path d="M12 8v8M8 12h8"></path>
+        </svg>
+        <!-- SVG 4: Play Button -->
+        <svg class="game-icon icon-4" viewBox="0 0 24 24" width="75" height="75" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M5 3l14 9-14 9V3z"></path>
+        </svg>
+    </div>
+    <div class="container register-container">
+        <a href="login.php" class="arrow">&#x2190;</a>
         <?php 
             if(isset($_POST['reg'])){
                 $username = mysqli_real_escape_string($conn, $_POST['username']);
@@ -75,46 +96,59 @@
         ?>
         <form action="register.php" method="POST">
             <h1>Register</h1>
-            <div class="form-group">
-                <input type="text" name="username" id="username" placeholder="username" class="form-control" required>
-            </div>
-            <div class="form-group">
-                <input type="password" name="pws" id="pws" placeholder="password" class="form-control" required>
-            </div>
-            <div class="form-group">
-                <input type="password" name="con_pws" id="con_pws" placeholder="confirm password" class="form-control" required>
-            </div>
-            <div class="form-group">
-                <input type="text" name="firstname" id="name" placeholder="firstname" class="form-control" required>
-            </div>
-            <div class="form-group">
-                <input type="text" name="lastname" id="lastname" placeholder="lastname" class="form-control" required>
-            </div>
             
-            <div class="radio-box mb-3">
-                <p class="gender">Gender</p>
-                <div class="form-check d-inline-block me-3">
-                    <input type="radio" name="gender" id="flexRadioDefault1" value="men" class="form-check-input" checked>
-                    <label for="flexRadioDefault1" class="form-check-label">Male</label>      
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <input type="text" name="username" id="username" placeholder="username" class="form-control" required>
                 </div>
-                <div class="form-check d-inline-block me-3">
-                    <input type="radio" name="gender" id="flexRadioDefault2" value="women" class="form-check-input">
-                    <label for="flexRadioDefault2" class="form-check-label">Female</label>
-                </div>
-                <div class="form-check d-inline-block">
-                    <input type="radio" name="gender" id="flexRadioDefault3" value="other" class="form-check-input">
-                    <label for="flexRadioDefault3" class="form-check-label">Other</label>
+                <div class="col-md-6 mb-3">
+                    <input type="email" name="email" id="email" placeholder="email" class="form-control" required>
                 </div>
             </div>
 
-            <div class="form-group">
-                <input type="email" name="email" id="email" placeholder="email" class="form-control" required>
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <input type="password" name="pws" id="pws" placeholder="password" class="form-control" required>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <input type="password" name="con_pws" id="con_pws" placeholder="confirm password" class="form-control" required>
+                </div>
             </div>
-            <div class="form-group">
-                <input type="text" name="tel" placeholder="telephone (10 digits)" class="form-control" required>
+
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <input type="text" name="firstname" id="name" placeholder="firstname" class="form-control" required>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <input type="text" name="lastname" id="lastname" placeholder="lastname" class="form-control" required>
+                </div>
             </div>
+
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <input type="text" name="tel" placeholder="telephone (10 digits)" class="form-control" required>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <div class="radio-box m-0" style="padding: 0.6rem 1rem;">
+                        <span class="gender me-3" style="font-size: 0.85rem; font-weight:600;">Gender:</span>
+                        <div class="form-check d-inline-block me-2">
+                            <input type="radio" name="gender" id="flexRadioDefault1" value="men" class="form-check-input" checked>
+                            <label for="flexRadioDefault1" class="form-check-label" style="font-size:0.85rem;">Male</label>
+                        </div>
+                        <div class="form-check d-inline-block me-2">
+                            <input type="radio" name="gender" id="flexRadioDefault2" value="women" class="form-check-input">
+                            <label for="flexRadioDefault2" class="form-check-label" style="font-size:0.85rem;">Female</label>
+                        </div>
+                        <div class="form-check d-inline-block">
+                            <input type="radio" name="gender" id="flexRadioDefault3" value="other" class="form-check-input">
+                            <label for="flexRadioDefault3" class="form-check-label" style="font-size:0.85rem;">Other</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <div class="form-floating mb-3">
-                <textarea class="form-control" placeholder="Address" id="floatingTextarea" name="address" style="height: 100px;" required></textarea>
+                <textarea class="form-control" placeholder="Address" id="floatingTextarea" name="address" style="height: 80px;" required></textarea>
                 <label for="floatingTextarea">Address</label>
             </div>
             

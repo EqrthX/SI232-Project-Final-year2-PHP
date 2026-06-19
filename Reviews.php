@@ -77,11 +77,11 @@
                     $product_query = mysqli_query($conn, "SELECT * FROM products WHERE product_name = '" . mysqli_real_escape_string($conn, $row_order['products']) . "'");
                     $row_product = mysqli_fetch_assoc($product_query);
                     ?>
-                    <div class="review mx-auto" style="max-width: 600px; padding: 20px; background: #f9f9f9; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1);">
+                    <div class="review mx-auto" style="max-width: 600px; padding: 20px;">
                         <a href="reviews.php" class="arrow mb-3 d-inline-block">&#x2190; ย้อนกลับ</a>
                         <div class="content-review">
                             <form action="reviews.php" method="post">
-                                <div class="text-review" style="color: black;">    
+                                <div class="text-review">    
                                     <h4>ORDER ID: <?php echo $row_order["orders_complete_id"] ?></h4>
                                     <input type="hidden" name="order_cID" value="<?php echo $row_order["orders_complete_id"] ?>">
 
@@ -96,7 +96,7 @@
                                     <?php endif; ?>
                                 </div> 
 
-                                <div class="form-floating mb-3" style="color: black;">
+                                <div class="form-floating mb-3">
                                     <textarea class="form-control" placeholder="เขียนรีวิวของคุณ..." id="floatingTextarea2" style="height: 120px" name="content" required></textarea>
                                     <label for="floatingTextarea2">Review</label>
                                 </div>
@@ -123,7 +123,7 @@
                             $result_products = mysqli_query($conn, $sql_products);
                             $fetch_products = mysqli_fetch_assoc($result_products);
                             ?>
-                            <div class="box-review m-3" style="width: 300px; padding: 15px; border: 1px solid #ddd; border-radius: 8px;">
+                            <div class="box-review m-3">
                                 <p>ORDER ID: <span><?php echo $fetch_review["orders_complete_id"] ?></span></p>
                                 <p>ชื่อสินค้า: <span><?php echo htmlspecialchars($fetch_review["products"]) ?></span></p>
                                 <p>สถานะการจ่ายเงิน: <span style="color: green;"><?php echo htmlspecialchars($fetch_review["status"]) ?></span></p>

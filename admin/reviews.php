@@ -36,8 +36,8 @@
                 if(mysqli_num_rows($result_review) > 0) {
                     while($rows_review = mysqli_fetch_assoc($result_review)) {
                         ?>
-                        <div class="container-review m-3" style="width: 320px; padding: 20px; border: 1px solid #ccc; border-radius: 8px; color: black; background: #fff;">
-                            <div class="box-review text-start">
+                        <div class="box-review m-3" style="width: 300px;">
+                            <div class="text-start">
                                 <p><strong>Order ID:</strong> <?php echo $rows_review["orders_complete_id"] ?></p>
                                 <p><strong>User ID:</strong> <?php echo $rows_review["user_id"] ?></p>
                                 <p><strong>ชื่อผู้รีวิว:</strong> <?php echo htmlspecialchars($rows_review["fullname"]) ?></p>

@@ -72,7 +72,8 @@
     <h1 style="text-align:center; text-transform: uppercase; margin-top:20px">Check order</h1>
 
     <div class="container mt-4">
-        <table class="table">
+        <div class="table-responsive">
+            <table class="table">
             <thead class="table-success">
                 <tr>
                     <th scope="col">#</th>
@@ -116,7 +117,7 @@
                                         </button>
 
                                         <!-- Modal -->
-                                        <div class="modal fade" id="exampleModal_<?php echo $rows["orders_complete_id"] ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" style="color: black;">
+                                        <div class="modal fade" id="exampleModal_<?php echo $rows["orders_complete_id"] ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                             <div class="modal-dialog">
                                                 <div class="modal-content">
                                                     <div class="modal-header">
@@ -158,6 +159,7 @@
                 ?>
             </tbody>
         </table>
+        </div>
     </div>
 
     <script src="js/script.js"></script>

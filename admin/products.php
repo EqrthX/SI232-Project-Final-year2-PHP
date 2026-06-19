@@ -124,15 +124,6 @@
             height: 50px;
             object-fit: cover;
         }
-        .form-edit {
-            max-width: 600px;
-            margin: 20px auto;
-            padding: 20px;
-            background: #f9f9f9;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-            color: black;
-        }
     </style>
 </head>
 <body>
@@ -311,8 +302,9 @@
             </div>
 
             <!-- Product Table List -->
-            <div class="show-contect mt-4 px-5">
-                <table class="table table-striped">
+            <div class="show-content mt-4 px-5">
+                <div class="table-responsive">
+                    <table class="table table-striped">
                     <thead>
                         <tr>
                             <th scope="col">#</th>
@@ -371,6 +363,7 @@
                         ?>
                     </tbody>
                 </table>
+                </div>
             </div>        
         <?php endif; ?>
     </section>

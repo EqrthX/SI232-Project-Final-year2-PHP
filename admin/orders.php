@@ -83,7 +83,7 @@
                     $row_order = mysqli_fetch_assoc($sql_order);
                 ?>
                 <h1 class="mt-3">Check Order Payment</h1>
-                <div class="check-box mx-auto" style="max-width: 600px; padding: 20px; background: #f9f9f9; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1); color: black;">
+                <div class="check-box mx-auto">
                     <a href="orders.php" class="arrow mb-3 d-inline-block">&#x2190; ย้อนกลับ</a>
 
                     <?php if ($row_order): ?>
@@ -152,7 +152,7 @@
                         if(mysqli_num_rows($result) > 0) {
                             while($rows = mysqli_fetch_assoc($result)) {
                                 ?>
-                                <div class="box-order m-3" style="width: 320px; padding: 20px; border: 1px solid #ccc; border-radius: 8px;">
+                                <div class="box-order m-3">
                                     <div class="content text-start">
                                         <h3>Order ID: <span><?php echo $rows["orders_complete_id"]; ?></span></h3>
                                         <p>ชื่อผู้สั่ง: <span><?php echo htmlspecialchars($rows["fullname"]); ?></span> </p>

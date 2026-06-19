@@ -1,56 +1,318 @@
-@import url('https://fonts.googleapis.com/css2?family=Mali:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Mali:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap');
+
+:root {
+    --bg-dark: #0b0f19;
+    --card-bg: rgba(30, 41, 59, 0.7);
+    --accent: #06b6d4; /* Cyan neon */
+    --accent-glow: rgba(6, 182, 212, 0.4);
+    --text-light: #f8fafc;
+    --text-muted: #94a3b8;
+    --border-color: rgba(255, 255, 255, 0.08);
+    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+* {
+    font-family: 'Outfit', 'Mali', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
 body {
-
-    font-family: "Mali", cursive;
-    background: linear-gradient(90deg, rgb(34, 192, 213) 0%, rgba(61,91,223,1) 53%, rgba(61,138,223,1) 100%);
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-
+    background-color: var(--bg-dark);
+    background-image: 
+        radial-gradient(at 0% 0%, rgba(6, 182, 212, 0.15) 0px, transparent 50%),
+        radial-gradient(at 100% 100%, rgba(236, 72, 153, 0.1) 0px, transparent 50%);
+    color: var(--text-light);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem 1rem;
+    overflow-y: auto;
 }
 
 .container {
-
-    top: 50px;
+    background: var(--card-bg);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid var(--border-color);
+    max-width: 480px;
+    width: 100%;
+    padding: 2.5rem;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 15px rgba(6, 182, 212, 0.05);
+    border-radius: 20px;
     position: relative;
-    background: #fff;
-    max-width: 600px;
-    height: auto;
-    padding: 20px;
-    box-shadow: rgba(0, 0, 0, 0.2) 0px 7px 29px 0px;
-    border-radius: 10px;
-
+    transition: var(--transition);
 }
 
-.container h1 {
-
-    text-align: center;
-    text-transform: uppercase;
-
-}
-
-.form-group {
-
-    margin-bottom: 15px;
-
+.container:hover {
+    border-color: rgba(6, 182, 212, 0.2);
+    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.45), 0 0 25px rgba(6, 182, 212, 0.1);
 }
 
 .arrow {
-
+    display: inline-block;
     text-decoration: none;
-    color: rgb(0, 0, 0);
-    font-size: 30px;
-    transition: 0.3s;
-    position: relative;
-    left: 20px;
-    transition: 0.5s ease;
-
+    color: var(--text-muted);
+    font-size: 1.8rem;
+    line-height: 1;
+    position: absolute;
+    top: 1.5rem;
+    left: 1.8rem;
+    transition: var(--transition);
 }
 
 .arrow:hover {
-
-    color:wheat;
-
+    color: var(--accent);
+    transform: translateX(-3px);
 }
 
+.container h1 {
+    text-align: center;
+    font-size: 2.2rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 2rem;
+    color: var(--text-light);
+    background: linear-gradient(135deg, #fff 0%, var(--accent) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+/* Custom form inputs overriding Bootstrap styling */
+.form-control {
+    background-color: rgba(15, 23, 42, 0.6) !important;
+    border: 1px solid var(--border-color) !important;
+    color: var(--text-light) !important;
+    border-radius: 10px !important;
+    padding: 0.75rem 1rem !important;
+    font-size: 0.95rem !important;
+    transition: var(--transition) !important;
+}
+
+.form-control:focus {
+    border-color: var(--accent) !important;
+    box-shadow: 0 0 10px var(--accent-glow) !important;
+    background-color: rgba(15, 23, 42, 0.8) !important;
+}
+
+.form-control::placeholder {
+    color: var(--text-muted) !important;
+    opacity: 0.7;
+}
+
+/* Float Label fields matching theme */
+.form-floating > .form-control:focus ~ label,
+.form-floating > .form-control:not(:placeholder-shown) ~ label {
+    color: var(--accent) !important;
+    transform: scale(0.85) translateY(-0.75rem) translateX(0.15rem) !important;
+}
+.form-floating > label {
+    color: var(--text-muted) !important;
+    padding: 0.75rem 1rem !important;
+}
+
+/* Radio box styles */
+.radio-box {
+    background: rgba(15, 23, 42, 0.4);
+    border: 1px solid var(--border-color);
+    padding: 1rem;
+    border-radius: 10px;
+    margin-bottom: 1.5rem;
+}
+
+.radio-box .gender {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+}
+
+.radio-box .form-check-label {
+    color: var(--text-light);
+    font-size: 0.95rem;
+    cursor: pointer;
+}
+
+.radio-box .form-check-input {
+    background-color: rgba(15, 23, 42, 0.6);
+    border-color: var(--border-color);
+    cursor: pointer;
+}
+
+.radio-box .form-check-input:checked {
+    background-color: var(--accent);
+    border-color: var(--accent);
+    box-shadow: 0 0 8px var(--accent-glow);
+}
+
+/* Submit buttons */
+.btn {
+    width: 100%;
+    padding: 0.75rem !important;
+    font-size: 1rem !important;
+    font-weight: 600 !important;
+    border-radius: 10px !important;
+    border: none !important;
+    cursor: pointer !important;
+    transition: var(--transition) !important;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, var(--accent) 0%, #0891b2 100%) !important;
+    color: #0f172a !important;
+}
+
+.btn-primary:hover {
+    background: linear-gradient(135deg, #22d3ee 0%, var(--accent) 100%) !important;
+    box-shadow: 0 0 15px var(--accent-glow) !important;
+    transform: translateY(-1px);
+}
+
+.btn-success {
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%) !important;
+    color: #0f172a !important;
+}
+
+.btn-success:hover {
+    background: linear-gradient(135deg, #34d399 0%, #10b981 100%) !important;
+    box-shadow: 0 0 15px rgba(16, 185, 129, 0.4) !important;
+    transform: translateY(-1px);
+}
+
+.container p {
+    text-align: center;
+    margin-top: 1.5rem;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+}
+
+.container p a {
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: 600;
+    transition: var(--transition);
+}
+
+.container p a:hover {
+    color: var(--text-light);
+    text-shadow: 0 0 8px var(--accent-glow);
+}
+
+/* Alert Styling */
+.alert {
+    border-radius: 10px !important;
+    font-size: 0.9rem !important;
+    margin-bottom: 1.5rem !important;
+    border: 1px solid transparent !important;
+}
+
+.alert-danger {
+    background-color: rgba(239, 68, 68, 0.1) !important;
+    border-color: rgba(239, 68, 68, 0.3) !important;
+    color: #ef4444 !important;
+}
+
+.alert-success {
+    background-color: rgba(16, 185, 129, 0.1) !important;
+    border-color: rgba(16, 185, 129, 0.3) !important;
+    color: #10b981 !important;
+}
+
+.box-alert {
+    width: 100%;
+}
+
+.container.register-container {
+    max-width: 650px;
+}
+
+/* Animated Game Background Elements */
+.game-bg-elements {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.game-icon {
+    position: absolute;
+    color: rgba(6, 182, 212, 0.08); /* Cyan neon glow */
+    animation: floatAnimation 14s infinite ease-in-out;
+}
+
+.game-icon.icon-1 {
+    top: 15%;
+    left: 8%;
+    animation-duration: 16s;
+    animation-delay: 0s;
+}
+
+.game-icon.icon-2 {
+    bottom: 18%;
+    left: 10%;
+    color: rgba(236, 72, 153, 0.07); /* Pink glow */
+    animation-name: floatAnimationAlternative;
+    animation-duration: 20s;
+    animation-delay: 2s;
+}
+
+.game-icon.icon-3 {
+    top: 25%;
+    right: 10%;
+    color: rgba(234, 179, 8, 0.07); /* Amber glow */
+    animation-duration: 18s;
+    animation-delay: 1s;
+}
+
+.game-icon.icon-4 {
+    bottom: 15%;
+    right: 8%;
+    color: rgba(6, 182, 212, 0.08);
+    animation-name: floatAnimationAlternative;
+    animation-duration: 22s;
+    animation-delay: 3s;
+}
+
+@keyframes floatAnimation {
+    0% {
+        transform: translateY(0) rotate(0deg) scale(1);
+        opacity: 0.2;
+    }
+    50% {
+        transform: translateY(-30px) rotate(180deg) scale(1.08);
+        opacity: 0.5;
+    }
+    100% {
+        transform: translateY(0) rotate(360deg) scale(1);
+        opacity: 0.2;
+    }
+}
+
+@keyframes floatAnimationAlternative {
+    0% {
+        transform: translateY(0) rotate(0deg) scale(1);
+        opacity: 0.15;
+    }
+    50% {
+        transform: translateY(35px) rotate(-180deg) scale(0.92);
+        opacity: 0.45;
+    }
+    100% {
+        transform: translateY(0) rotate(-360deg) scale(1);
+        opacity: 0.15;
+    }
+}
