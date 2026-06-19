@@ -1,3 +1,7 @@
+<?php 
+    require_once 'config/db.php';
+    session_start();
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -5,122 +9,54 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
-
-    <style>
-
-        @import url('https://fonts.googleapis.com/css2?family=Mali:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
-
-        html,body {
-
-            font-family: "Mali", cursive;
-            background: rgb(3,227,255);
-            background: linear-gradient(90deg, rgba(3,227,255,1) 0%, rgba(61,91,223,1) 53%, rgba(61,138,223,1) 100%);
-        
-        }
-
-        .container {
-
-            display: flex;
-            justify-content: center;
-            margin-top: 150px;
-            align-items: center;
-            margin-right: auto;
-            margin-left: auto;
-            margin-bottom: auto;
-            background: white;
-            width: 40%;
-            border-radius: 25px;
-            
-        }
-
-        .container h1 {
-
-            text-align: center;
-            text-transform: uppercase;
-            font-size: 50px;
-
-        }
-
-        .container input[type=text], input[type=password], input[type=email] {
-
-            display: flex;
-            font-family: "Mali", cursive;
-            position: relative;
-            margin-top: 10px;
-            margin-left: -15px;
-            font-size: large;
-            padding: 10px;
-            border-radius: 10px;
-            width: 100%;
-            
-        }
-
-        .container .gender input[type=radio] {
-
-            font-weight: bold;
-
-        }
-
-        .container input[type=submit] {
-
-            width: 100%;
-            margin-top: 10px;
-            padding: 15px;
-            text-transform: uppercase;
-            font-family: "Mali", cursive;
-            border: none;
-            border-radius: 5px;
-            background: #5f91c8;
-            color: white;
-            font-weight: bold;
-            transition: 0.2s;
-            margin-bottom: 25px;
-
-        }
-
-        .container input[type=submit]:hover {
-
-            background-color: #1a5698;
-
-        }
-
-        .container a {
-
-            text-decoration: none;
-            transition: 0.2s;
-            color: rgb(3,227,255);
-
-        }
-
-        .container a:hover {
-
-            color: red;
-
-        }
-        
-    </style>
-
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="css/login_register.css">
 </head>
-
 <body>
-    
     <div class="container">
+        <a href="index.php" class="arrow">&#x2190;</a>
+        <?php 
+            if(isset($_POST['enter'])) {
+                $user = mysqli_real_escape_string($conn, $_POST['user']);
+                $password = mysqli_real_escape_string($conn, $_POST['pws']);
 
-        <form action="Check_Login.php" method="POST">
+                $sql_user = "SELECT * FROM users WHERE username = '$user'";
+                $result_users = mysqli_query($conn, $sql_user);
+                $userData = mysqli_fetch_array($result_users, MYSQLI_ASSOC);
 
+                if($userData) {
+                    if($password === $userData['password']) {
+                        if($userData['user_type'] === 'user') {
+                            $_SESSION['user_email'] = $userData["email"];
+                            $_SESSION['user_username'] = $userData["username"];
+                            $_SESSION['user_id'] = $userData["user_id"];
+                            header("Location: index.php");
+                            exit();
+                        } elseif($userData['user_type'] === 'admin') {
+                            $_SESSION['admin_email'] = $userData['email'];
+                            $_SESSION['admin_user'] = $userData['username'];
+                            $_SESSION['admin_id'] = $userData['user_id'];
+                            header("Location: admin/index.php");
+                            exit();
+                        }
+                    } else {
+                        echo "<div class='alert alert-danger'>Password incorrect!</div>";
+                    }
+                } else {
+                    echo "<div class='alert alert-danger'>User not found!</div>";
+                }
+            }
+        ?>
+        <form action="login.php" method="POST">
             <h1>Login</h1>
-
-            <input type="text" name="user" id="user" placeholder="username">
+            <input type="text" name="user" id="user" placeholder="username" class="form-control" required>
             <br>
-
-            <input type="password" name="pws" id="pws" placeholder="password">
+            <input type="password" name="pws" id="pws" placeholder="password" class="form-control" required>
             <br>
-
-            <input type="submit" value="submit" name="enter">
-
-            <p>Have you an account ? <a href="Register.php">Register</a></p>
+            <input type="submit" value="submit" name="enter" class="btn btn-primary md-3">
+            <p>Don't have an account? <a href="register.php">Register</a></p>
         </form>
-
     </div>
 </body>
 </html>

@@ -1,0 +1,428 @@
+@import url('https://fonts.googleapis.com/css2?family=Mali:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
+
+
+html, body {
+
+    font-family: "Mali", cursive;
+    margin: 0;
+    padding: 0;
+
+}
+
+:root {
+
+    --skyBlue: rgba(3,227,255,1) 25%;
+    --Blue: rgb(33, 98, 168) 100%;
+    --white: #fff;
+    --black: #000;
+    --Border: 2rem solid var(--black);
+    --boxShadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+    --lightBG: #f5f5f5;
+}
+
+*::selection {
+    background-color: rgb(33, 98, 168) 100%;
+}
+
+*::-webkit-scrollbar {
+    height: 0.5rem;
+    width: 1rem;
+}
+
+*::-webkit-scrollbar-track {
+    background-color: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+    background-color: rgb(33, 98, 168) 100%;
+}
+
+.header {
+
+    background: linear-gradient(90deg, rgba(3,227,255,1) 0%, rgb(33, 98, 168) 100%);
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+    justify-content: space-around;
+    position: relative;
+    margin: 0 auto;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    
+}
+
+.header h1 {
+    
+    text-transform: uppercase;
+    font-size: 2rem;
+    
+}
+
+.header h1 a {
+
+    text-decoration: none;
+    color: rgb(170, 170, 170);
+
+}
+
+.header h1 span {
+
+    color: #000000;
+
+}
+
+.header ul li {
+
+    display: inline-block;
+    font-size: 1.5rem;
+    font-weight: bold;
+    padding: 2px;
+}
+
+.header ul li a{
+
+    color:rgb(255, 255, 255);
+    text-decoration: none;
+
+}
+
+.header ul li a .l{
+
+    transition: 0.3s;
+
+}
+
+.header ul li a .l:hover{
+
+    color:#F0B67F;
+
+}
+
+.header ul li a .r {
+
+    transition: 0.3s;
+
+}
+
+.header ul li a .r:hover{
+
+    color:#C7EFCF;
+
+}
+
+.header .navbar {
+
+    font-size: 1.2em;
+
+}
+
+.header .navbar a {
+
+    display: inline-block;
+    position: relative;
+    color: white;
+    text-decoration: none;
+    padding: 1.2rem;
+    text-transform: uppercase;
+    letter-spacing: 0.10em;
+    padding: 15px 20px;
+    transition: 0.3s;
+
+}
+
+.header .navbar a:hover {
+
+    color: #F0B67F;
+
+}
+
+.header .icons div {
+
+    margin-left: 1.5rem;
+    font-size: 2rem;
+    cursor: pointer;
+    color: rgb(255, 255, 255);
+    transition: 0.3s;
+    
+}
+
+.header .icons div:hover {
+
+    color: #F0B67F;
+
+}
+
+.header .account-box {
+
+    position: absolute;
+    top: 120%;
+    right: 2rem;
+    width: 15rem;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+    border-radius: 0.5rem;
+    padding: 2rem;
+    text-align: center;
+    border-radius: 0.5rem;
+    border: 0.1rem solid black;
+    display: none;
+    animation: fadeIn 0.3s linear;
+    background-color: rgb(124, 101, 101);
+    padding-top: 5px;
+    
+}
+
+.header .account-box.active{
+
+    display: inline-block;
+
+}
+
+.header .account-box span {
+
+    color: white;
+
+}
+
+.header .account-box .delete-btn  {
+
+    background: rgb(167, 10, 10);
+    border-radius: 0.5rem;
+    padding: 10px;  
+    color: var(--black);
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: 0.3s;
+
+}
+
+.header .account-box .delete-btn:hover {
+
+    background: #C7EFCF;
+    color: rgb(175, 81, 81);
+}
+
+@keyframes fadeIn {
+    0% {
+      transform: translateY(1rem);
+      opacity: 0.2s;
+    }
+}
+
+/* dashboard */
+
+.dashboard h1 {
+    
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 2rem;
+    margin-top: 10px;
+    
+}
+
+.dashboard .box-container {
+
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(24rem, 5rem));
+    gap: 1.5rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    align-items: flex-start;
+
+}
+
+.dashboard .box-container .box {
+
+    border-radius: .5rem;
+    padding: 1.5rem;
+    background-color: white;
+    box-shadow: var(--boxShadow);
+    border: var(--border);
+    text-align: center;
+
+}
+
+.dashboard .box-container .box h3{
+    font-size: 2rem;
+    color:var(--black); 
+}
+
+.dashboard .box-container .box p {
+
+    margin-top: 1.5rem;
+    padding: 1.5rem;
+    background-color: var(--lightBG);
+    color: rgb(31, 47, 123);
+    font-size: 1rem;
+    border-radius: .5rem;
+    border: var(--border);
+
+}
+
+.dashboard .modal-dialog form .modal-body label {
+
+    width: 100%;
+    margin: 2px;
+    padding: 3px;
+    font-weight: bold;
+
+}
+
+.dashboard .modal-dialog form .modal-body input, select, textarea {
+
+    width: 75%;
+    margin: 2px;
+    padding: 5px;
+    border-radius: 5px;
+    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+}
+
+.dashboard .show-content .table {
+
+    padding: 50px;
+
+}
+
+/* ORDER */
+
+.container .form-control {
+    width: 25%;
+}
+
+.container .container-checkorder {
+    width: 100%;
+    height: auto;
+    display: flex; /* เปลี่ยน display เป็น flex */
+    flex-wrap: wrap; /* ให้ .box-order ขึ้นไปเรื่อยๆ ถ้าความกว้างไม่พอ */
+    
+}
+
+.container .container-checkorder .box-order {
+    width: calc(50% - 20px); /* ปรับความกว้างให้เท่ากันและลดขอบระหว่าง .box-order */
+    height: auto;
+    background: #F0B67F;
+    margin-right: 20px; /* เพิ่มระยะห่างด้านขวาของ .box-order */
+    margin-bottom: 20px; /* เพิ่มระยะห่างด้านล่างของ .box-order */
+    border-radius: .5rem;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.container .container-checkorder .box-order:last-child {
+    margin-right: 0; /* ไม่ต้องมีระยะห่างด้านขวาใน .box-order สุดท้าย */
+}
+
+.container .container-checkorder .box-order .content {
+    width: 100%; /* ปรับให้เต็มความกว้างของ .box-order */
+    height: auto;
+    text-align: center;
+    padding: 5px;
+}
+
+/* IN ORDER */
+
+h1 {
+
+    text-transform: uppercase;
+    text-align: center;
+
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.check-box {
+
+    width: 100%;
+    max-width: 900px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    background: #F0B67F;
+    border-radius: 1rem;
+
+}
+
+.arrow {
+
+    color: white;
+    text-decoration: none;
+    font-size: 3rem;
+    position: relative;
+    left: 35px;
+    transition: 0.3s ease;
+}
+
+.arrow:hover {
+
+    color: brown;
+
+}
+
+.box-order-check {
+
+    display: flex;
+    justify-content: space-between;
+    padding: 5px;
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    top: -70px;
+
+}
+
+.order-details {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.form-check-group {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-left: 20px; /* Space between text and checkboxes */
+}
+
+.form-check {
+    margin-bottom: 5px;
+}
+
+.form-check-input {
+    margin-right: 10px;
+}
+
+.btn {
+    margin-top: 20px;
+}
+
+.arrow {
+    display: block;
+    margin-bottom: 10px;
+}
+
+/* Review */
+
+
+.container-review {
+
+    width: 100%;
+    height: auto;
+        display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+
+}
+
+.box-review {
+
+    width: 100%;
+    height: auto;
+    background: #F0B67F;
+    border-radius: .5rem;
+    padding: 5px;
+
+}
+

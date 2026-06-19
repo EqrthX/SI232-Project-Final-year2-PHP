@@ -1,11 +1,7 @@
-<?php 
-
-    require 'connection.php';
-
+<?php
     session_start();
     session_unset();
     session_destroy();
-
-    header("location:Home_Visitor.php");
-
+    header("Location: index.php");
+    exit();
 ?>
